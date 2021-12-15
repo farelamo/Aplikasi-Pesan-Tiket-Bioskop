@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class CheckLogin
 {
     /**
@@ -16,11 +16,11 @@ class CheckLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()->level == "admin"){
+        if(Auth::user()->level == "admin"){
 
             return $next($request);
         }
-        else if(auth()->user()->level == "Superadmin") {
+        else if(Auth::user()->level == "Superadmin") {
             return $next($request);
         }
    

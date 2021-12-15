@@ -16,9 +16,9 @@
 <!-- overlayScrollbars -->
 <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.js"></script>
+<script src="{{ asset('admin/dist/js/adminlte.js')}}"></script>
 
-<script src="dist/js/global.js"></script>
+{{-- <script src="dist/js/global.js"></script> --}}
 <!-- CKEditor -->
 <script src="ckeditor/ckeditor.js"></script>
 <script>

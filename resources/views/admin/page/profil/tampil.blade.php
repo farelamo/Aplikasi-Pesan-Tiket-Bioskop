@@ -39,7 +39,7 @@
                     <tr>
                       <td width="20%"><strong>Foto<strong></td>
                       <td width="80%"><img 
-                        src="{{asset('public/foto/'.Auth::user()->foto)}}" 
+                        src="{{asset('foto/'. Auth::user()->foto)}}" 
                         class="img-fluid" width="200px;"></td>
                     </tr>                
                     <tr>

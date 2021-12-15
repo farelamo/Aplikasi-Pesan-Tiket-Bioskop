@@ -37,4 +37,8 @@ class PageUserController extends Controller
 
         return view('user.master', compact('datas','data2','data3','data4','data5','data6','data7','data8','data9','data10','data11','data12'));
     }
+
+    public function signin(){
+        return view('user.signin');
+    }
 }

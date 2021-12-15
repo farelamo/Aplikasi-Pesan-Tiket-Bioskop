@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\JadwalController;
 use App\Http\Controllers\Admin\TransaksiController;
 use App\Http\Controllers\Admin\UserPenggunaController;
 use App\Http\Controllers\User\PageUserController;
+use App\Http\Controllers\User\LoginUserController;
+use App\Http\Controllers\Auth\RegisterController;
 
 use GuzzleHttp\Middleware;
 
@@ -46,16 +48,16 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 // User
 Route::middleware('ceklevel')->group(function(){
-
-Route::get('/user', [UserController::class, 'index'])->name('admin.user');
-Route::get('/user.cari', [UserController::class, 'search']);
-Route::get('/user.tambah', [UserController::class, 'create']);
-Route::post('/user', [UserController::class, 'store']);
-Route::get('/user.{id}.edit', [UserController::class, 'edit']);
-Route::put('/user.{id}', [UserController::class, 'update']);
-Route::get('/user.{id}', [UserController::class, 'show']);
-Route::delete('/user.{id}', [UserController::class, 'destroy']);
+    Route::get('/user', [UserController::class, 'index']);
+    Route::get('/user.cari', [UserController::class, 'search']);
+    Route::get('/user.tambah', [UserController::class, 'create']);
+    Route::post('/user', [UserController::class, 'store']);
+    Route::get('/user.{id}.edit', [UserController::class, 'edit']);
+    Route::put('/user.{id}', [UserController::class, 'update']);
+    Route::get('/user.{id}', [UserController::class, 'show']);
+    Route::delete('/user.{id}', [UserController::class, 'destroy']);
 });
+
 // Bioskop
 Route::get('/bioskop', [BioskopController::class, 'index'])->name('admin.bioskop');
 Route::get('/bioskop.cari', [BioskopController::class, 'search']);
@@ -153,11 +155,9 @@ Route::delete('/user_pengguna.{id}', [UserPenggunaController::class, 'destroy'])
 //halaman user
 Route::get('/', [PageUserController::class, 'index']);
 Route::get('/signin', [PageUserController::class, 'signin']);
+Route::get('/signup', [RegisterController::class, 'index']);
+Route::post('/signup', [RegisterController::class, 'create']);
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/user/login', [LoginUserController::class,'index'])->name('login');
+Route::post('/user/login', [LoginUserController::class,'login']);
+Route::get('/user/logout', [LoginUserController::class, 'logout']);

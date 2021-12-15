@@ -11,6 +11,8 @@ class UserPengguna extends Model
     protected $table = 'user_pengguna';
     protected $primaryKey = "id_user_pengguna";
 
+    protected $guarded = [];
+    
     public function transaksi(){
         return $this->hasMany("App\Models\Transaksi","id_user_pengguna");
     }
